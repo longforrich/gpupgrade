@@ -79,7 +79,7 @@ func UpdatePostgresqlConfOnSegments(agentConns []*idl.Connection, intermediate *
 		for _, mirror := range mirrors {
 			opt := &idl.UpdateFileConfOptions{
 				Path:        filepath.Join(mirror.DataDir, "postgresql.conf"),
-				Pattern:     fmt.Sprintf(pattern, intermediate.Primaries[mirror.ContentID].Port),
+				Pattern:     fmt.Sprintf(pattern, intermediate.Mirrors[mirror.ContentID].Port),
 				Replacement: fmt.Sprintf(replacement, mirror.Port),
 			}
 
